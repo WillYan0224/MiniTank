@@ -42,5 +42,6 @@ private:
 	
 	void Move(float value);
 	void Turn(float value);
+	
 };
 
