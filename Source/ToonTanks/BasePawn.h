@@ -8,7 +8,7 @@
 
 
 class UCapsuleComponent;
-
+class AProjectile;
 UCLASS
 ()
 class TOONTANKS_API ABasePawn : public APawn
@@ -34,6 +34,9 @@ private:
 	UStaticMeshComponent* TurretMesh;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
 	USceneComponent* ProjectileSpawnPoint;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	TSubclassOf<AProjectile> ProjectileClass;
 	
 public:	
 
