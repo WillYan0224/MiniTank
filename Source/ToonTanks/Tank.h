@@ -21,7 +21,8 @@ public:
 	ATank();
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
-
+	void HandleDestruction();
+	APlayerController* GetPlayerController() const { return TankPlayerController; }
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -38,7 +39,7 @@ private:
 	float RotationRate = 45.f;
 
 	UPROPERTY()
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 	
 	void Move(float value);
 	void Turn(float value);
