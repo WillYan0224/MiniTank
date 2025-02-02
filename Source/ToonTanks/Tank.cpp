@@ -26,8 +26,7 @@ void ATank::Tick(float DeltaSeconds)
 	{
 		FHitResult HitResult;
 		TankPlayerController->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility,false, HitResult);
-
-		DrawDebugSphere(GetWorld(), HitResult.ImpactPoint, 20.f, 12, FColor::Red, false, -1.0f);
+		
 		TankPlayerController->GetHitResultUnderCursor(ECC_Visibility, false, HitResult);
 		RotateTurret(HitResult.ImpactPoint);
 	}

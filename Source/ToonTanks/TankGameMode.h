@@ -6,6 +6,7 @@
 #include "GameFramework/GameMode.h"
 #include "TankGameMode.generated.h"
 
+class ATankPlayerController;
 /**
  * 
  */
@@ -19,7 +20,21 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartGame();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void GameOver(bool bWon);
 	
 private:
-	ATank* Tank;	
+	ATank* Tank;
+	ATankPlayerController* TankPlayerController;
+
+	int32 TowerNum = 0;
+	
+	float StartDelay = 5.f;
+	
+	void HandleGameStart();
+	int32 GetTowerCount();
 };
